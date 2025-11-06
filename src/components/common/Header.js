@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <>
-      <Box>
+      <Box sx={{ position: "fixed", width: "100%", zIndex: 100 }}>
         <Box
           component="nav"
           sx={{
@@ -31,7 +31,7 @@ function Header() {
             alignItems: "center",
             justifyContent: "space-between",
             p: "4px 8px",
-            position: "fixed",
+            position: "relative",
             zIndex: 10,
             left: 0,
             right: 0,
@@ -129,7 +129,6 @@ function Header() {
           <Box
             sx={{
               display: { xs: "flex", lg: "none" },
-
               flexDirection: "column",
               bgcolor: "black",
               borderRadius: 10,

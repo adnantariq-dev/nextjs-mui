@@ -1,7 +1,26 @@
 "use client";
-import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
+import { Box, Button, Stack, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 import { FaCircleArrowRight } from "react-icons/fa6";
+
+const textVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+  }),
+};
+
+const imageVariant = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: "easeOut", delay: 0.5 },
+  },
+};
 
 const Hero = () => {
   return (
@@ -24,10 +43,16 @@ const Hero = () => {
         justifyContent="space-between"
         spacing={{ xs: 4, md: 6 }}
         sx={{ width: "100%", maxWidth: "1300px" }}
+        component={motion.div}
+        initial="hidden"
+        animate="visible"
       >
         {/* Left Text Section */}
         <Box sx={{ flex: 1 }}>
           <Typography
+            component={motion.div}
+            variants={textVariant}
+            custom={0}
             sx={{
               fontSize: "16px",
               fontWeight: 600,
@@ -44,6 +69,9 @@ const Hero = () => {
           </Typography>
 
           <Typography
+            component={motion.div}
+            variants={textVariant}
+            custom={1}
             variant="h1"
             sx={{
               fontWeight: 700,
@@ -65,6 +93,9 @@ const Hero = () => {
           </Typography>
 
           <Typography
+            component={motion.div}
+            variants={textVariant}
+            custom={2}
             variant="h3"
             sx={{
               fontWeight: 600,
@@ -77,6 +108,9 @@ const Hero = () => {
           </Typography>
 
           <Typography
+            component={motion.div}
+            variants={textVariant}
+            custom={3}
             variant="body1"
             sx={{
               maxWidth: 600,
@@ -91,6 +125,9 @@ const Hero = () => {
           </Typography>
 
           <Button
+            component={motion.button}
+            variants={textVariant}
+            custom={4}
             variant="contained"
             sx={{
               bgcolor: "black",
@@ -111,11 +148,13 @@ const Hero = () => {
             Get Started
           </Button>
         </Box>
+
         {/* Right Image Section */}
         <Box
-          component="img"
+          component={motion.img}
           src="/hero.png"
           alt="Hero"
+          variants={imageVariant}
           sx={{
             flex: 1,
             width: "50%",
