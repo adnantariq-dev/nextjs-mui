@@ -38,9 +38,16 @@ const Footer = () => {
           sx={{
             maxWidth: "1300px",
             display: "flex",
+
+            width: "100%",
           }}
         >
-          <Stack direction={"row"} gap={3} flexWrap={"wrap"}>
+          <Stack
+            direction={"row"}
+            gap={3}
+            flexWrap={"wrap"}
+            sx={{ width: "100%", justifyContent: "space-between" }}
+          >
             <Box component={"dev"}>
               <Box
                 component="img"

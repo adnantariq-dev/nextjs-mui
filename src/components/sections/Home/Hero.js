@@ -55,7 +55,7 @@ const Hero = () => {
             custom={0}
             sx={{
               fontSize: "16px",
-              fontWeight: 600,
+              fontWeight: 500,
               color: "white",
               bgcolor: "black",
               borderRadius: 10,
@@ -74,7 +74,7 @@ const Hero = () => {
             custom={1}
             variant="h1"
             sx={{
-              fontWeight: 700,
+              fontWeight: 500,
               fontSize: { xs: "2.5rem", sm: "3rem", md: "96px" },
               display: "flex",
               alignItems: "center",
@@ -98,7 +98,7 @@ const Hero = () => {
             custom={2}
             variant="h3"
             sx={{
-              fontWeight: 600,
+              fontWeight: 500,
               maxWidth: 600,
               mb: 2,
               fontSize: { xs: "32px", md: "48px" },
@@ -130,7 +130,7 @@ const Hero = () => {
             custom={4}
             variant="contained"
             sx={{
-              bgcolor: "black",
+              bgcolor: "secondary.main",
               color: "white",
               textTransform: "capitalize",
               fontWeight: 600,

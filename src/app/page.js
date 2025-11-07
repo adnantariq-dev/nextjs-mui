@@ -1,4 +1,12 @@
-import { Hero, WhyChoose } from "@/components/sections";
+import {
+  BeginLearning,
+  Featured,
+  HelpSection,
+  Hero,
+  ManageLearning,
+  Oppertunities,
+  WhyChoose,
+} from "@/components/sections";
 import React from "react";
 
 export default function page() {
@@ -6,6 +14,11 @@ export default function page() {
     <>
       <Hero />
       <WhyChoose />
+      <ManageLearning />
+      <Oppertunities />
+      <Featured />
+      <HelpSection />
+      <BeginLearning />
     </>
   );
 }
