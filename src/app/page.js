@@ -6,7 +6,7 @@ import {
   ManageLearning,
   Oppertunities,
   WhyChoose,
-} from "@/components/sections";
+} from "@/components/sections/Home";
 import React from "react";
 
 export default function page() {

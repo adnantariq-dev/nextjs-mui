@@ -38,6 +38,7 @@ const BeginLearning = () => {
               alignItems: "center",
               flexDirection: { xs: "column", md: "row" },
               gap:4
+              
             }}
           >
             <Box

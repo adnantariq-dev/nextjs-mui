@@ -35,7 +35,7 @@ function Header() {
             zIndex: 10,
             left: 0,
             right: 0,
-            my: 3,
+            my: 4,
           }}
         >
           <Box
@@ -119,7 +119,7 @@ function Header() {
           component={"nav"}
           sx={{
             position: "absolute",
-            top: showMenu ? 74 : -300,
+            top: showMenu ? 84 : -300,
             left: 0,
             right: 0,
             mx: 2,
