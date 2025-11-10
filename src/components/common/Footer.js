@@ -64,8 +64,9 @@ const Footer = () => {
             <Stack direction={"row"} gap={4} flexWrap={"wrap"}>
               <Stack gap={2}>
                 <Typography fontWeight={600}>Quicks Link</Typography>
-                {data.map((val) => (
+                {data.map((val, index) => (
                   <Typography
+                    key={index}
                     sx={{ fontSize: "14px" }}
                     component={Link}
                     href={val.href}
@@ -76,8 +77,9 @@ const Footer = () => {
               </Stack>
               <Stack gap={2}>
                 <Typography fontWeight={600}>Legal</Typography>
-                {legal.map((val) => (
+                {legal.map((val, index) => (
                   <Typography
+                    key={index}
                     sx={{ fontSize: "14px" }}
                     component={Link}
                     href={val.href}

@@ -50,10 +50,11 @@ function Header() {
               gap: { md: "2px", xl: 3 },
             }}
           >
-            {data.map((val) => {
+            {data.map((val, index) => {
               const isActive = pathname === val.href;
               return (
                 <Button
+                  key={index}
                   disableElevation
                   disableFocusRipple
                   disableRipple
@@ -138,10 +139,11 @@ function Header() {
               gap: "18px",
             }}
           >
-            {data.map((val) => {
+            {data.map((val, index) => {
               const isActive = pathname === val.href;
               return (
                 <Button
+                  key={index}
                   onClick={() => setShowMenu(!showMenu)}
                   disableElevation
                   disableFocusRipple
