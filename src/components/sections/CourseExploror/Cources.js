@@ -1,8 +1,35 @@
-import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
+"use client";
+import { useGetCoursesQuery } from "@/redux/apis/coursApi";
+import {
+  Box,
+  CircularProgress,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
+import Link from "next/link";
 import React from "react";
 import { MdStar } from "react-icons/md";
-import { motion } from "framer-motion";
+
 const Cources = () => {
+  const { data, error, isLoading } = useGetCoursesQuery();
+  console.log(data);
+
+  if (isLoading)
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "50vh",
+        }}
+      >
+        <CircularProgress size={40} />
+      </Box>
+    );
+  if (error) return <p>Error fetching courses</p>;
   return (
     <>
       <Box
@@ -29,60 +56,76 @@ const Cources = () => {
             Top Cources
           </Typography>
           <Grid container spacing={2}>
-            {Array.from(Array(12)).map((_, index) => (
-              <Grid key={index} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-                <Paper
-                  variant="outlined"
-                  sx={{
-                    bgcolor: "white",
-                    p: 1,
-                    borderRadius: 3,
-                    transition: "all 0.3s ease", // smooth animation
-                    "&:hover": {
-                      boxShadow: "0px 5px 10px rgba(0,0,0,0.2)",
-                      transform: "scale(1.03)", // add smooth scale effect
-                    },
+            {data.map((val, index) => (
+              <Grid
+                key={index}
+                height={"100%"}
+                size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+                item
+              >
+                <Link
+                  href={`/course/${val.id - 1}`} // 👈 dynamic link
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    width: "100%",
                   }}
                 >
-                  <Box
-                    component={"img"}
-                    src={"./oppertunity1.webp"}
+                  <Paper
+                    variant="outlined"
                     sx={{
-                      width: "100%",
-                      height: "200px",
-                      objectFit: "cover",
+                      bgcolor: "white",
+                      p: 1,
                       borderRadius: 3,
-                    }}
-                  />
-                  <Typography sx={{ fontWeight: 600, mt: 1, fontSize: "18px" }}>
-                    React Fundamentals: Build UIs
-                  </Typography>
-                  <Typography sx={{ fontWeight: 600, mt: 1 }}>
-                    Skill you'll gain:{" "}
-                    <Typography
-                      component={"span"}
-                      sx={{ fontWeight: 300, color: "gray" }}
-                    >
-                      Learn React basics — components, props, state, hooks, and
-                      routing — by building real UI projects.
-                    </Typography>
-                  </Typography>
-
-                  <Typography
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1,
-                      mt: 3,
+                      transition: "all 0.3s ease", // smooth animation
+                      height: "100%",
+                      "&:hover": {
+                        boxShadow: "0px 5px 10px rgba(0,0,0,0.2)",
+                        transform: "scale(1.03)", // add smooth scale effect
+                      },
                     }}
                   >
-                    <MdStar /> 4.1
-                  </Typography>
+                    <Box
+                      component={"img"}
+                      src={val.image}
+                      sx={{
+                        width: "100%",
+                        height: "200px",
+                        objectFit: "cover",
+                        borderRadius: 3,
+                      }}
+                    />
+                    <Typography
+                      sx={{ fontWeight: 600, mt: 1, fontSize: "18px" }}
+                    >
+                      {val.title}
+                    </Typography>
+                    <Typography sx={{ fontWeight: 600, mt: 1 }}>
+                      Skill you'll gain:{" "}
+                      <Typography
+                        component={"span"}
+                        sx={{ fontWeight: 300, color: "gray" }}
+                      >
+                        {val.description}
+                      </Typography>
+                    </Typography>
 
-                  <Typography sx={{ fontWeight: 300, color: "gray" }}>
-                    Beinner . Course . 10 hrs
-                  </Typography>
-                </Paper>
+                    <Typography
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                        mt: 3,
+                      }}
+                    >
+                      <MdStar /> {val.rating}
+                    </Typography>
+
+                    <Typography sx={{ fontWeight: 300, color: "gray" }}>
+                      {val.level} . Course . {val.durationHours} hrs
+                    </Typography>
+                  </Paper>
+                </Link>
               </Grid>
             ))}
           </Grid>

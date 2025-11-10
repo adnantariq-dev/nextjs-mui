@@ -1,9 +1,7 @@
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { Roboto, Outfit } from "next/font/google";
-import { InitColorSchemeScript } from "@mui/material";
-import AppThemeProvider from "@/contexts/AppThemeContext";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Footer, Header } from "@/components/common";
+import RootProviders from "@/providers/RootProviders";
 
 // const roboto = Roboto({
 //   weight: ["300", "400", "500", "700"],
@@ -28,14 +26,11 @@ export default function RootLayout(props) {
   return (
     <html lang="en" className={outfit.variable}>
       <body>
-        <InitColorSchemeScript attribute="class" />
-        <AppRouterCacheProvider>
-          <AppThemeProvider>
-            <Header />
-            {children}
-            <Footer />
-          </AppThemeProvider>
-        </AppRouterCacheProvider>
+        <RootProviders>
+          <Header />
+          {children}
+          <Footer />
+        </RootProviders>
       </body>
     </html>
   );

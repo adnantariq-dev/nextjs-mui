@@ -15,13 +15,13 @@ export default function AppThemeProvider({ children }) {
           text: { main: "white", ligh: "black", gray: "#b0bec5" },
         },
       },
-      dark: {
-        palette: {
-          primary: { main: "#f15024" },
-          secondary: { main: "#01333a" },
-          background: { default: "#001d21", paper: "#012a2f" },
-        },
-      },
+      // dark: {
+      //   palette: {
+      //     primary: { main: "#f15024" },
+      //     secondary: { main: "#01333a" },
+      //     background: { default: "#001d21", paper: "#012a2f" },
+      //   },
+      // },
     },
     cssVariables: {
       colorSchemeSelector: "class",
