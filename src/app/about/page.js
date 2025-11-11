@@ -1,7 +1,13 @@
+import { Hero, Supported } from "@/components/sections/About";
 import React from "react";
 
 const About = () => {
-  return <div>About</div>;
+  return (
+    <>
+      <Hero />
+      <Supported />
+    </>
+  );
 };
 
 export default About;

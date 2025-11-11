@@ -12,7 +12,7 @@ export default function AppThemeProvider({ children }) {
           primary: { main: "#f15024" },
           secondary: { main: "#001d21", light: "#01333a" },
           background: { default: "#ffffff", paper: "#f6f9f9" },
-          text: { main: "white", ligh: "black", gray: "#b0bec5" },
+          text: { main: "white", ligh: "black", gray: "#68757cff" },
         },
       },
       // dark: {
